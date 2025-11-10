@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -13,8 +13,8 @@
 
 """Controller components for diagnosis and data management."""
 
-from chen1110.controller.diagnosis import DiagnosisAgent
-from chen1110.controller.data_manager import DiagnosisDataManager
+from arobust.controller.diagnosis import DiagnosisAgent
+from arobust.controller.data_manager import DiagnosisDataManager
 
 __all__ = [
     "DiagnosisAgent",

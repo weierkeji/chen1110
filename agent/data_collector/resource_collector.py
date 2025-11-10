@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -13,7 +13,7 @@
 
 """Resource collector for CPU, memory, and GPU usage."""
 
-from chen1110.agent.data_collector.data_collector import DataCollector
+from arobust.agent.data_collector.data_collector import DataCollector
 
 
 class ResourceCollector(DataCollector):
@@ -24,7 +24,7 @@ class ResourceCollector(DataCollector):
     def __init__(self):
         super().__init__()
         # Import here to avoid circular dependency
-        from chen1110.agent.monitor.resource import ResourceMonitor
+        from arobust.agent.monitor.resource import ResourceMonitor
 
         self._monitor = ResourceMonitor.singleton_instance()
 

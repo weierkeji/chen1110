@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -25,7 +25,7 @@ def get_env(key: str, default: Optional[str] = None) -> Optional[str]:
 
 def get_node_id() -> int:
     """Get node ID from environment."""
-    from chen1110.common.constants import EnvConfigKey
+    from arobust.common.constants import EnvConfigKey
 
     node_id_str = get_env(EnvConfigKey.NODE_ID, "-1")
     try:
@@ -36,14 +36,14 @@ def get_node_id() -> int:
 
 def get_node_type() -> str:
     """Get node type from environment."""
-    from chen1110.common.constants import EnvConfigKey
+    from arobust.common.constants import EnvConfigKey
 
     return get_env(EnvConfigKey.NODE_TYPE, "worker")
 
 
 def get_node_rank() -> int:
     """Get node rank from environment."""
-    from chen1110.common.constants import EnvConfigKey
+    from arobust.common.constants import EnvConfigKey
 
     node_rank_str = get_env(EnvConfigKey.NODE_RANK, "-1")
     try:
@@ -54,7 +54,7 @@ def get_node_rank() -> int:
 
 def get_local_rank() -> int:
     """Get local rank from environment."""
-    from chen1110.common.constants import EnvConfigKey
+    from arobust.common.constants import EnvConfigKey
 
     local_rank_str = get_env(EnvConfigKey.LOCAL_RANK, "0")
     try:

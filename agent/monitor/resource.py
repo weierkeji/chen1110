@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -20,9 +20,9 @@ import time
 
 import psutil
 
-from chen1110.common.constants import Accelerators, EnvConfigKey
-from chen1110.common.diagnosis_data import GPUStats
-from chen1110.common.utils import Singleton, get_env
+from arobust.common.constants import Accelerators, EnvConfigKey
+from arobust.common.diagnosis_data import GPUStats
+from arobust.common.utils import Singleton, get_env
 
 logger = logging.getLogger(__name__)
 

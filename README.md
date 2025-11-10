@@ -1,4 +1,4 @@
-# chen1110 - RL Training Fault Tolerance System
+# arobust - RL Training Fault Tolerance System
 
 一个完整的强化学习训练容错系统，参考 DLRover 架构设计，提供三层架构：数据收集层、监控层和诊断管理层。
 
@@ -13,7 +13,7 @@
 ## 架构设计
 
 ```
-chen1110/
+arobust/
 ├── agent/                          # Agent 端组件
 │   ├── data_collector/            # 数据收集层（底层）
 │   │   ├── data_collector.py      # 抽象基类
@@ -43,7 +43,7 @@ chen1110/
 ### 从源码安装
 
 ```bash
-cd chen1110
+cd arobust
 pip install -e .
 ```
 
@@ -64,7 +64,7 @@ pip install -e ".[dlrover]"
 ### 1. 基础使用
 
 ```python
-from chen1110 import ResourceMonitor, TrainingMonitor, DiagnosisAgent
+from arobust import ResourceMonitor, TrainingMonitor, DiagnosisAgent
 
 # 启动资源监控
 resource_monitor = ResourceMonitor.singleton_instance()
@@ -85,7 +85,7 @@ diagnosis_agent = DiagnosisAgent.singleton_instance(
 ### 2. 数据收集
 
 ```python
-from chen1110.agent.data_collector import (
+from arobust.agent.data_collector import (
     ResourceCollector,
     MetricCollector,
     LogCollector,
@@ -107,7 +107,7 @@ if metric_collector.is_enabled():
 ### 3. 检查点管理
 
 ```python
-from chen1110.ckpt_manager import LatestCheckpointManager
+from arobust.ckpt_manager import LatestCheckpointManager
 
 # 创建检查点管理器
 ckpt_manager = LatestCheckpointManager(
@@ -172,11 +172,11 @@ class DiagnosisAgent(Singleton):
 
 ### 环境变量
 
-- `CHEN1110_XPU_TIMER_PORT`: XPUTimer 服务端口（默认：无）
-- `CHEN1110_MASTER_ADDR`: Master 服务地址（用于上报数据）
-- `CHEN1110_NODE_ID`: 节点 ID
-- `CHEN1110_NODE_TYPE`: 节点类型
-- `CHEN1110_MONITOR_ENABLED`: 是否启用监控（默认：false）
+- `arobust_XPU_TIMER_PORT`: XPUTimer 服务端口（默认：无）
+- `arobust_MASTER_ADDR`: Master 服务地址（用于上报数据）
+- `arobust_NODE_ID`: 节点 ID
+- `arobust_NODE_TYPE`: 节点类型
+- `arobust_MONITOR_ENABLED`: 是否启用监控（默认：false）
 
 ## 开发
 
@@ -189,14 +189,14 @@ pytest tests/
 ### 代码格式化
 
 ```bash
-black chen1110/
+black arobust/
 ```
 
 ### 代码检查
 
 ```bash
-flake8 chen1110/
-mypy chen1110/
+flake8 arobust/
+mypy arobust/
 ```
 
 ## 贡献

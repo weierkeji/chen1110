@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,5 +11,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Examples for chen1110 fault tolerance system."""
+"""Examples for arobust fault tolerance system."""
 

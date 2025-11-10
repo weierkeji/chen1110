@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Basic tests for chen1110 components."""
+"""Basic tests for arobust components."""
 
 import os
 import tempfile
@@ -25,7 +25,7 @@ class TestDataCollectors:
 
     def test_resource_collector(self):
         """Test resource collector."""
-        from chen1110.agent.data_collector import ResourceCollector
+        from arobust.agent.data_collector import ResourceCollector
 
         collector = ResourceCollector()
         assert collector.is_enabled()
@@ -35,7 +35,7 @@ class TestDataCollectors:
 
     def test_metric_collector(self):
         """Test metric collector."""
-        from chen1110.agent.data_collector import MetricCollector
+        from arobust.agent.data_collector import MetricCollector
 
         collector = MetricCollector()
         # Without XPUTimer, it should be disabled
@@ -45,7 +45,7 @@ class TestDataCollectors:
 
     def test_log_collector(self):
         """Test log collector."""
-        from chen1110.agent.data_collector import LogCollector
+        from arobust.agent.data_collector import LogCollector
 
         with tempfile.NamedTemporaryFile(mode="w", delete=False) as f:
             f.write("Test log line 1\n")
@@ -64,7 +64,7 @@ class TestDataCollectors:
 
     def test_stack_collector(self):
         """Test stack collector."""
-        from chen1110.agent.data_collector import StackCollector
+        from arobust.agent.data_collector import StackCollector
 
         collector = StackCollector()
         assert collector.is_enabled()
@@ -79,7 +79,7 @@ class TestCheckpointManagers:
 
     def test_latest_checkpoint_manager(self):
         """Test latest checkpoint manager."""
-        from chen1110.ckpt_manager import LatestCheckpointManager
+        from arobust.ckpt_manager import LatestCheckpointManager
 
         with tempfile.TemporaryDirectory() as tmpdir:
             manager = LatestCheckpointManager(tmpdir, max_checkpoints=2)
@@ -101,7 +101,7 @@ class TestCheckpointManagers:
 
     def test_periodic_checkpoint_manager(self):
         """Test periodic checkpoint manager."""
-        from chen1110.ckpt_manager import PeriodicCheckpointManager
+        from arobust.ckpt_manager import PeriodicCheckpointManager
 
         with tempfile.TemporaryDirectory() as tmpdir:
             manager = PeriodicCheckpointManager(
@@ -121,7 +121,7 @@ class TestCheckpointManagers:
 
     def test_ref_logp_checkpoint_manager(self):
         """Test reference LogP checkpoint manager."""
-        from chen1110.ckpt_manager import RefLogPCheckpointManager
+        from arobust.ckpt_manager import RefLogPCheckpointManager
 
         with tempfile.TemporaryDirectory() as tmpdir:
             manager = RefLogPCheckpointManager(tmpdir)
@@ -142,7 +142,7 @@ class TestUtils:
 
     def test_singleton(self):
         """Test singleton pattern."""
-        from chen1110.common.utils import Singleton
+        from arobust.common.utils import Singleton
 
         class TestClass(Singleton):
             def __init__(self, value):

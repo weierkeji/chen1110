@@ -1,4 +1,4 @@
-# Chen1110 RL Fault Tolerance System - 实现总结
+# arobust RL Fault Tolerance System - 实现总结
 
 ## 概述
 
@@ -166,7 +166,7 @@
 ## 依赖关系
 
 ```
-chen1110 (独立包)
+arobust (独立包)
 ├── 核心依赖
 │   ├── psutil>=5.8.0 (资源监控)
 │   ├── pynvml>=11.0.0 (GPU 监控)
@@ -185,7 +185,7 @@ chen1110 (独立包)
 ## 目录结构
 
 ```
-chen1110/
+arobust/
 ├── __init__.py                 # 包初始化
 ├── setup.py                    # 打包配置
 ├── requirements.txt            # 依赖列表
@@ -213,14 +213,14 @@ chen1110/
 ### 1. 安装
 
 ```bash
-cd chen1110
+cd arobust
 pip install -e .
 ```
 
 ### 2. 基础使用
 
 ```python
-from chen1110 import ResourceMonitor, TrainingMonitor, DiagnosisAgent
+from arobust import ResourceMonitor, TrainingMonitor, DiagnosisAgent
 
 # 启动资源监控
 resource_monitor = ResourceMonitor.singleton_instance()
@@ -238,7 +238,7 @@ diagnosis_agent.start()
 ### 3. 检查点管理
 
 ```python
-from chen1110.ckpt_manager import LatestCheckpointManager
+from arobust.ckpt_manager import LatestCheckpointManager
 
 ckpt_manager = LatestCheckpointManager(checkpoint_dir="/path/to/checkpoints")
 ckpt_manager.save(state_dict, step=global_step)
@@ -247,7 +247,7 @@ state_dict = ckpt_manager.load()
 
 ## 与 DLRover 的关系
 
-- **独立运行**: chen1110 是一个独立的 Python 包，可以单独安装和使用
+- **独立运行**: arobust 是一个独立的 Python 包，可以单独安装和使用
 - **架构参考**: 参考了 DLRover 的三层架构设计
 - **可选集成**: 可以通过安装 `dlrover` 依赖与 DLRover 集成使用
 - **接口预留**: 预留了与 Master 通信的接口，可以对接到 DLRover Master
@@ -273,7 +273,7 @@ state_dict = ckpt_manager.load()
 
 ## 总结
 
-chen1110 是一个功能完整的 RL 训练容错系统，成功实现了：
+arobust 是一个功能完整的 RL 训练容错系统，成功实现了：
 
 - 📊 **完整的监控体系**: 资源、性能、日志、堆栈全覆盖
 - 🔄 **智能容错机制**: 自动检测故障并提供恢复策略

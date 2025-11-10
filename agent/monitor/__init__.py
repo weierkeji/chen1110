@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -13,8 +13,8 @@
 
 """Monitoring components for resources and training progress."""
 
-from chen1110.agent.monitor.resource import ResourceMonitor
-from chen1110.agent.monitor.training import TrainingMonitor
+from arobust.agent.monitor.resource import ResourceMonitor
+from arobust.agent.monitor.training import TrainingMonitor
 
 __all__ = [
     "ResourceMonitor",

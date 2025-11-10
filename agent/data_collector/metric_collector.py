@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -17,10 +17,10 @@ import logging
 
 import requests
 
-from chen1110.agent.data_collector.data_collector import DataCollector
-from chen1110.common.constants import DiagnosisDataType, EnvConfigKey
-from chen1110.common.diagnosis_data import WorkerTrainingMetric
-from chen1110.common.utils import get_env, get_node_id, get_node_rank, get_node_type, is_port_in_use
+from arobust.agent.data_collector.data_collector import DataCollector
+from arobust.common.constants import DiagnosisDataType, EnvConfigKey
+from arobust.common.diagnosis_data import WorkerTrainingMetric
+from arobust.common.utils import get_env, get_node_id, get_node_rank, get_node_type, is_port_in_use
 
 logger = logging.getLogger(__name__)
 

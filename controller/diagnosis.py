@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -18,20 +18,20 @@ import threading
 import time
 from typing import Dict, Optional
 
-from chen1110.agent.data_collector import (
+from arobust.agent.data_collector import (
     DataCollector,
     LogCollector,
     MetricCollector,
     ResourceCollector,
     StackCollector,
 )
-from chen1110.common.constants import (
+from arobust.common.constants import (
     DiagnosisActionType,
     DiagnosisConstant,
     DiagnosisErrorConstant,
 )
-from chen1110.common.diagnosis_data import DiagnosisAction, NoAction, NodeAction
-from chen1110.common.utils import Singleton, get_node_id, get_node_type
+from arobust.common.diagnosis_data import DiagnosisAction, NoAction, NodeAction
+from arobust.common.utils import Singleton, get_node_id, get_node_type
 
 logger = logging.getLogger(__name__)
 

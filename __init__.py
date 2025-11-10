@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -12,18 +12,18 @@
 # limitations under the License.
 
 """
-chen1110 - RL Training Fault Tolerance System
+arobust - RL Training Fault Tolerance System
 
 A comprehensive fault tolerance system for Reinforcement Learning training,
 featuring three-tier architecture: data collection, monitoring, and diagnosis.
 """
 
 __version__ = "0.1.0"
-__author__ = "chen1110"
+__author__ = "arobust"
 
-from chen1110.agent.monitor.resource import ResourceMonitor
-from chen1110.agent.monitor.training import TrainingMonitor
-from chen1110.controller.diagnosis import DiagnosisAgent
+from arobust.agent.monitor.resource import ResourceMonitor
+from arobust.agent.monitor.training import TrainingMonitor
+from arobust.controller.diagnosis import DiagnosisAgent
 
 __all__ = [
     "ResourceMonitor",

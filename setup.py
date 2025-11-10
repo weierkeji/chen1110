@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -37,13 +37,13 @@ extra_require = {
 }
 
 setup(
-    name="chen1110-rl-fault-tolerance",
+    name="arobust-rl-fault-tolerance",
     version="0.1.0",
     description="RL Training Fault Tolerance System",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="chen1110",
-    url="https://github.com/chen1110/rl-fault-tolerance",
+    author="arobust",
+    url="https://github.com/arobust/rl-fault-tolerance",
     install_requires=install_requires,
     extras_require=extra_require,
     python_requires=">=3.8",

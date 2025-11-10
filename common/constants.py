@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -63,19 +63,19 @@ class EnvConfigKey:
     """Environment variable keys."""
 
     # XPUTimer configuration
-    XPU_TIMER_PORT = "CHEN1110_XPU_TIMER_PORT"
+    XPU_TIMER_PORT = "arobust_XPU_TIMER_PORT"
 
     # Master configuration
-    MASTER_ADDR = "CHEN1110_MASTER_ADDR"
+    MASTER_ADDR = "arobust_MASTER_ADDR"
 
     # Node configuration
-    NODE_ID = "CHEN1110_NODE_ID"
-    NODE_TYPE = "CHEN1110_NODE_TYPE"
-    NODE_RANK = "CHEN1110_NODE_RANK"
+    NODE_ID = "arobust_NODE_ID"
+    NODE_TYPE = "arobust_NODE_TYPE"
+    NODE_RANK = "arobust_NODE_RANK"
     NODE_IP = "NODE_IP"
 
     # Monitoring configuration
-    MONITOR_ENABLED = "CHEN1110_MONITOR_ENABLED"
+    MONITOR_ENABLED = "arobust_MONITOR_ENABLED"
 
     # Training configuration
     LOCAL_RANK = "LOCAL_RANK"

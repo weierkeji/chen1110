@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -19,9 +19,9 @@ import os
 import threading
 import time
 
-from chen1110.agent.monitor.resource import ResourceMonitor
-from chen1110.common.constants import Accelerators, EnvConfigKey
-from chen1110.common.utils import Singleton, get_env, get_node_rank
+from arobust.agent.monitor.resource import ResourceMonitor
+from arobust.common.constants import Accelerators, EnvConfigKey
+from arobust.common.utils import Singleton, get_env, get_node_rank
 
 logger = logging.getLogger(__name__)
 

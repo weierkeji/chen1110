@@ -1,4 +1,4 @@
-# Copyright 2025 chen1110. All rights reserved.
+# Copyright 2025 arobust. All rights reserved.
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Basic usage example for chen1110 fault tolerance system."""
+"""Basic usage example for arobust fault tolerance system."""
 
 import logging
 import time
@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 def example_resource_monitoring():
     """Example: Using resource monitoring."""
-    from chen1110.agent.monitor.resource import ResourceMonitor
+    from arobust.agent.monitor.resource import ResourceMonitor
 
     logger.info("=== Resource Monitoring Example ===")
 
@@ -45,7 +45,7 @@ def example_resource_monitoring():
 
 def example_training_monitoring():
     """Example: Using training monitoring."""
-    from chen1110.agent.monitor.training import TrainingMonitor, write_training_metrics
+    from arobust.agent.monitor.training import TrainingMonitor, write_training_metrics
 
     logger.info("\n=== Training Monitoring Example ===")
 
@@ -62,7 +62,7 @@ def example_training_monitoring():
 
 def example_diagnosis_agent():
     """Example: Using diagnosis agent."""
-    from chen1110.controller.diagnosis import DiagnosisAgent
+    from arobust.controller.diagnosis import DiagnosisAgent
 
     logger.info("\n=== Diagnosis Agent Example ===")
 
@@ -90,7 +90,7 @@ def example_diagnosis_agent():
 
 def example_checkpoint_management():
     """Example: Using checkpoint managers."""
-    from chen1110.ckpt_manager import (
+    from arobust.ckpt_manager import (
         LatestCheckpointManager,
         PeriodicCheckpointManager,
         RefLogPCheckpointManager,
@@ -172,7 +172,7 @@ def example_checkpoint_management():
 
 def main():
     """Run all examples."""
-    logger.info("=== chen1110 RL Fault Tolerance System Examples ===\n")
+    logger.info("=== arobust RL Fault Tolerance System Examples ===\n")
 
     try:
         # Run examples
