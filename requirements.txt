@@ -1,0 +1,16 @@
+# Core dependencies
+psutil>=5.8.0
+pynvml>=11.0.0
+requests>=2.25.0
+torch>=1.10.0
+
+# Optional dependencies for development
+pytest>=7.0.0
+pytest-cov>=3.0.0
+black>=22.0.0
+flake8>=4.0.0
+mypy>=0.950
+
+# Optional: Integration with dlrover
+# dlrover>=0.6.0
+
