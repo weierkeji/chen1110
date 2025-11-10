@@ -65,6 +65,9 @@ class DiagnosisAgent(Singleton):
         self._local_world_size = local_world_size
         self._stopped = False
 
+        # Master client for reporting data
+        self._client = None
+
         # Data collectors
         self._periodical_collectors: Dict[DataCollector, int] = {}
         self._lock = threading.Lock()
@@ -79,6 +82,22 @@ class DiagnosisAgent(Singleton):
             f"errors:               {self._errors}\n"
             f"node_rank:            {self._node_rank}"
         )
+
+    def set_client(self, client):
+        """
+        Set master client for reporting data.
+
+        Args:
+            client: Master client instance.
+        """
+        self._client = client
+        logger.info("Master client set for diagnosis agent")
+
+        # Set client for all registered collectors
+        for collector in self._periodical_collectors.keys():
+            if hasattr(collector, "set_client"):
+                collector.set_client(client)
+                logger.debug(f"Set client for {collector.__class__.__name__}")
 
     def register_periodical_data_collector(
         self, collector: DataCollector, time_interval: int
@@ -95,6 +114,11 @@ class DiagnosisAgent(Singleton):
                 time_interval = DiagnosisConstant.MIN_DATA_COLLECT_INTERVAL
 
             self._periodical_collectors[collector] = time_interval
+            
+            # Set client if already available
+            if self._client and hasattr(collector, "set_client"):
+                collector.set_client(self._client)
+            
             logger.info(
                 f"Registered periodic collector {collector.__class__.__name__} "
                 f"with interval {time_interval}s"

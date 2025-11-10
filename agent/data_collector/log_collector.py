@@ -15,6 +15,7 @@
 
 import logging
 import os
+import time
 from typing import Optional
 
 from arobust.agent.data_collector.data_collector import DataCollector
@@ -43,6 +44,7 @@ class LogCollector(DataCollector):
         self._log_file_path = log_file_path
         self._max_lines = max_lines
         self._last_position = 0
+        self._client = None  # Master client for reporting data
 
     def collect_data(self) -> str:
         """
@@ -87,6 +89,15 @@ class LogCollector(DataCollector):
             and os.path.exists(self._log_file_path)
         )
 
+    def set_client(self, client):
+        """
+        Set master client for reporting data.
+
+        Args:
+            client: Master client instance.
+        """
+        self._client = client
+
     def store_data(self, data: object):
         """
         Store log data by reporting to master.
@@ -109,12 +120,20 @@ class LogCollector(DataCollector):
             node_id=get_node_id(),
             node_type=get_node_type(),
             node_rank=get_node_rank(),
+            timestamp=int(time.time()),
         )
 
-        # In a real implementation, this would report to master
-        logger.info(f"Collected log content: {len(data)} characters")
+        # Report to master if client is available
+        if self._client:
+            try:
+                self._client.report_diagnosis_agent_metrics(agent_log_metric)
+                logger.info(f"Reported log content: {len(data)} characters")
+            except Exception as e:
+                logger.error(f"Failed to report log data to master: {e}")
+        else:
+            logger.warning("Master client not set, log data not reported")
 
-    def reset_position(self):
-        """Reset the file read position to 0."""
-        self._last_position = 0
+    # def reset_position(self):
+    #     """Reset the file read position to 0."""
+    #     self._last_position = 0
 

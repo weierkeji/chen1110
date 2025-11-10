@@ -39,7 +39,7 @@ class MetricCollector(DataCollector):
             )
         else:
             self._metric_endpoint = None
-        self._client = None  # Will be set when needed
+        self._client = None  # Master client for reporting data
 
     def collect_data(self) -> str:
         """
@@ -95,6 +95,15 @@ class MetricCollector(DataCollector):
             self._metric_port
         )
 
+    def set_client(self, client):
+        """
+        Set master client for reporting data.
+
+        Args:
+            client: Master client instance.
+        """
+        self._client = client
+
     def store_data(self, data: object):
         """
         Store metric data by reporting to master.
@@ -106,6 +115,10 @@ class MetricCollector(DataCollector):
             logger.warning("The data is not of type string")
             return
 
+        if not data:
+            # No metric data
+            return
+
         # Create metric object
         agent_xpu_metric = WorkerTrainingMetric(
             data_type=DiagnosisDataType.XPU_TIMER_METRIC,
@@ -115,7 +128,13 @@ class MetricCollector(DataCollector):
             node_rank=get_node_rank(),
         )
 
-        # In a real implementation, this would report to master
-        # For now, just log it
-        logger.info(f"Collected XPU metrics: {len(data)} bytes")
+        # Report to master if client is available
+        if self._client:
+            try:
+                self._client.report_diagnosis_agent_metrics(agent_xpu_metric)
+                logger.info(f"Reported XPU metrics: {len(data)} bytes")
+            except Exception as e:
+                logger.error(f"Failed to report XPU metrics to master: {e}")
+        else:
+            logger.warning("Master client not set, XPU metrics not reported")
 

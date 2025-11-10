@@ -15,6 +15,7 @@
 
 import logging
 import sys
+import time
 import traceback
 from typing import Dict, List
 
@@ -35,6 +36,7 @@ class StackCollector(DataCollector):
     def __init__(self):
         super().__init__()
         self._enabled = True
+        self._client = None  # Master client for reporting data
 
     def collect_data(self) -> Dict[int, List[str]]:
         """
@@ -79,6 +81,15 @@ class StackCollector(DataCollector):
         """
         return self._enabled
 
+    def set_client(self, client):
+        """
+        Set master client for reporting data.
+
+        Args:
+            client: Master client instance.
+        """
+        self._client = client
+
     def store_data(self, data: object):
         """
         Store stack trace data by reporting to master.
@@ -88,6 +99,10 @@ class StackCollector(DataCollector):
         """
         if not isinstance(data, dict):
             logger.warning("The data is not of type dict")
+            return
+
+        if not data:
+            # No stack data
             return
 
         # Convert stack data to string
@@ -100,10 +115,18 @@ class StackCollector(DataCollector):
             node_id=get_node_id(),
             node_type=get_node_type(),
             node_rank=get_node_rank(),
+            timestamp=int(time.time()),
         )
 
-        # In a real implementation, this would report to master
-        logger.info(f"Collected stack traces for {len(data)} threads")
+        # Report to master if client is available
+        if self._client:
+            try:
+                self._client.report_diagnosis_agent_metrics(agent_stack_metric)
+                logger.info(f"Reported stack traces for {len(data)} threads")
+            except Exception as e:
+                logger.error(f"Failed to report stack traces to master: {e}")
+        else:
+            logger.warning("Master client not set, stack traces not reported")
 
     def _format_stacks(self, stacks: Dict) -> str:
         """
